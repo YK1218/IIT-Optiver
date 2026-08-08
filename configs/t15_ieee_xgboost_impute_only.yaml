@@ -1,0 +1,20 @@
+experiment: t15_ieee_xgboost_impute_only
+theme: 1.5-ablation
+dataset: ieee
+seed: 42
+# Confound control for the SMOTE cell. SMOTE cannot interpolate across NaNs, so the
+# XGBoost+SMOTE run has to median-impute first -- which throws away XGBoost's native
+# missing-value handling, and IEEE-CIS is 45% missing. Without this control we cannot
+# tell whether the SMOTE cell's drop is caused by SMOTE or by the imputation it forces.
+# This run is imputation with NO resampling: the difference from plain XGBoost is the
+# cost of imputation alone, and the remaining gap to the SMOTE cell is SMOTE's own effect.
+model:
+  name: xgboost
+  params:
+    n_estimators: 800
+    max_depth: 8
+    learning_rate: 0.05
+imbalance:
+  method: none
+impute_nans: true
+missing_indicators: false

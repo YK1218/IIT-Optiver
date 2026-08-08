@@ -1,0 +1,15 @@
+experiment: t15_paysim_mlp_plain
+theme: '1.5'
+dataset: paysim
+seed: 42
+model:
+  name: mlp
+  hidden:
+  - 256
+  - 128
+  batch_size: 4096
+  epochs: 20
+  patience: 4
+imbalance:
+  method: none
+missing_indicators: false

@@ -1,0 +1,13 @@
+experiment: t15_uci_xgboost_plain
+theme: '1.5'
+dataset: uci
+seed: 42
+model:
+  name: xgboost
+  params:
+    n_estimators: 600
+    max_depth: 5
+    learning_rate: 0.05
+imbalance:
+  method: none
+missing_indicators: false

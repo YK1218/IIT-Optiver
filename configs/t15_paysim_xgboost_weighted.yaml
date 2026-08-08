@@ -1,0 +1,13 @@
+experiment: t15_paysim_xgboost_weighted
+theme: '1.5'
+dataset: paysim
+seed: 42
+model:
+  name: xgboost
+  params:
+    n_estimators: 600
+    max_depth: 6
+    learning_rate: 0.1
+imbalance:
+  method: class_weight
+missing_indicators: false

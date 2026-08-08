@@ -1,0 +1,11 @@
+experiment: t15_uci_logreg_weighted
+theme: '1.5'
+dataset: uci
+seed: 42
+model:
+  name: logreg
+  params:
+    max_iter: 1000
+imbalance:
+  method: class_weight
+missing_indicators: false

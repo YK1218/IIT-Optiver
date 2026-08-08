@@ -1,0 +1,15 @@
+experiment: t15_uci_mlp_smote
+theme: '1.5'
+dataset: uci
+seed: 42
+model:
+  name: mlp
+  hidden:
+  - 128
+  - 64
+  batch_size: 512
+  epochs: 40
+  patience: 6
+imbalance:
+  method: smote
+missing_indicators: false

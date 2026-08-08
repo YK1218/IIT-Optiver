@@ -1,0 +1,13 @@
+experiment: t15_ieee_xgboost_weighted
+theme: '1.5'
+dataset: ieee
+seed: 42
+model:
+  name: xgboost
+  params:
+    n_estimators: 800
+    max_depth: 8
+    learning_rate: 0.05
+imbalance:
+  method: class_weight
+missing_indicators: false

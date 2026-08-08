@@ -1,0 +1,20 @@
+experiment: t15_ieee_xgboost_weighted_grouped
+theme: 1.5-ablation
+dataset: ieee
+seed: 42
+# Entity-leakage ablation. The mandated split is stratified-random, so the same card
+# (card1_addr1_(day-D1) proxy) can appear in both train and test -- 42% of IEEE-CIS rows
+# belong to an entity with more than one transaction. This variant re-runs the identical
+# recipe on the entity-disjoint split. The gap between the two is how much of the headline
+# IEEE number is memorised customers rather than learned fraud structure. It is reported
+# as context for Theme 1.5, and it is the split Themes 1.1/1.2 must use.
+split: ieee_grouped
+model:
+  name: xgboost
+  params:
+    n_estimators: 800
+    max_depth: 8
+    learning_rate: 0.05
+imbalance:
+  method: class_weight
+missing_indicators: false

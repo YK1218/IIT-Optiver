@@ -1,0 +1,17 @@
+experiment: t15_paysim_mlp_focal_g1
+theme: '1.5'
+dataset: paysim
+seed: 42
+model:
+  name: mlp
+  hidden:
+  - 256
+  - 128
+  batch_size: 4096
+  epochs: 20
+  patience: 4
+imbalance:
+  method: focal
+  gamma: 1
+  alpha: 0.25
+missing_indicators: false

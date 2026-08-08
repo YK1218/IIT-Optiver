@@ -1,0 +1,11 @@
+experiment: t15_paysim_logreg_plain
+theme: '1.5'
+dataset: paysim
+seed: 42
+model:
+  name: logreg
+  params:
+    max_iter: 1000
+imbalance:
+  method: none
+missing_indicators: false

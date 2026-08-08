@@ -1,0 +1,23 @@
+# Environment
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Raw datasets: immutable, large, downloaded per the Intern Guide Step 0.2.
+# Never committed -- provenance lives in reports/step0_setup.md.
+IITB_01_datasets/
+
+# Derived data: regenerate with `python -m src.prepare`.
+data/processed/
+data/sequences/
+
+# Model checkpoints: large binaries. models/encoder_11.pt is shared out-of-band.
+models/*.pt
+models/*.pkl
+
+# NOT ignored, on purpose:
+#   configs/         one committed config per experiment (R5)
+#   data/splits/     frozen splits -- committing them is what makes results comparable
+#   results/         results.csv is the single source of truth
+#   reports/         hand-ins and figures

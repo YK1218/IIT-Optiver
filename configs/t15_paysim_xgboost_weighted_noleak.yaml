@@ -1,0 +1,25 @@
+experiment: t15_paysim_xgboost_weighted_noleak
+theme: 1.5-ablation
+dataset: paysim
+seed: 42
+model:
+  name: xgboost
+  params:
+    n_estimators: 600
+    max_depth: 6
+    learning_rate: 0.1
+imbalance:
+  method: class_weight
+# Leakage ablation. PaySim's post-transaction balance columns encode the simulator's
+# own fraud mechanic (a fraudulent TRANSFER/CASH_OUT empties the origin account and
+# frequently leaves the destination ledger un-updated), so a model reading them is
+# partly reading the answer. This variant keeps only information available *before*
+# the transaction settles. If the score barely moves, the near-perfect PaySim numbers
+# are real signal; if it collapses, they are an artefact and PaySim must not be used
+# as evidence for the loss comparison.
+drop_features:
+  - newbalanceOrig
+  - newbalanceDest
+  - err_balance_orig
+  - err_balance_dest
+missing_indicators: false

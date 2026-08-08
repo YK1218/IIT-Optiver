@@ -1,0 +1,17 @@
+experiment: t15_uci_mlp_focal_g5
+theme: '1.5'
+dataset: uci
+seed: 42
+model:
+  name: mlp
+  hidden:
+  - 128
+  - 64
+  batch_size: 512
+  epochs: 40
+  patience: 6
+imbalance:
+  method: focal
+  gamma: 5
+  alpha: 0.25
+missing_indicators: false

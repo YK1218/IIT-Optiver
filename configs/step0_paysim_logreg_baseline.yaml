@@ -1,0 +1,11 @@
+experiment: step0_paysim_logreg_baseline
+theme: '0'
+dataset: paysim
+seed: 42
+model:
+  name: logreg
+  params:
+    max_iter: 1000
+imbalance:
+  method: none
+notes: Linear reference point.

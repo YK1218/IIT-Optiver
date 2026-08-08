@@ -1,0 +1,15 @@
+experiment: t15_ieee_mlp_smote
+theme: '1.5'
+dataset: ieee
+seed: 42
+model:
+  name: mlp
+  hidden:
+  - 256
+  - 128
+  batch_size: 1024
+  epochs: 30
+  patience: 5
+imbalance:
+  method: smote
+missing_indicators: false
